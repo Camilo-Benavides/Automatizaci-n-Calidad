@@ -16,3 +16,8 @@ Feature:Check how many products I have in the shopping car
     Given I already have elements in the shopping cart
     When I select remove
     Then the element is removed
+
+  Scenario: I want to review my items
+    Given I have finished choosing the products
+    When I click on the shopping cart
+    Then It shows how many products I have in my cart

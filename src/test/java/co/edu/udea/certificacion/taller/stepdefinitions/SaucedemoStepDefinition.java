@@ -1,5 +1,6 @@
 package co.edu.udea.certificacion.taller.stepdefinitions;
 
+import co.edu.udea.certificacion.taller.interactions.saucedemo.ClickKey;
 import co.edu.udea.certificacion.taller.tasks.Saucedemo.LoginSaucedemo;
 import co.edu.udea.certificacion.taller.tasks.OpenUrl;
 import co.edu.udea.certificacion.taller.tasks.Saucedemo.RemoveElement;
@@ -68,7 +69,24 @@ public class SaucedemoStepDefinition {
     @Then("the element is removed")
     public void theElementIsRemoved() {
         // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+//        throw new io.cucumber.java.PendingException();
+    }
+
+    @Given("I have finished choosing the products")
+    public void iHaveFinishedChoosingTheProducts() {
+        // Write code here that turns the phrase above into concrete actions
+//        throw new io.cucumber.java.PendingException();
+    }
+    @When("I click on the shopping cart")
+    public void iClickOnTheShoppingCart() {
+        // Write code here that turns the phrase above into concrete actions
+//        throw new io.cucumber.java.PendingException();
+        user.attemptsTo(ClickKey.move_to_shopping_cart());
+    }
+    @Then("It shows how many products I have in my cart")
+    public void itShowsHowManyProductsIHaveInMyCart() {
+        // Write code here that turns the phrase above into concrete actions
+//        throw new io.cucumber.java.PendingException();
     }
 
 }

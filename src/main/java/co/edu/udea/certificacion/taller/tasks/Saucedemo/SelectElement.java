@@ -6,8 +6,7 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.actions.Click;
 
-import static co.edu.udea.certificacion.taller.userinterfaces.SaucedemoPage.ADD_ELEMENT_1;
-import static co.edu.udea.certificacion.taller.userinterfaces.SaucedemoPage.ADD_ELEMENT_2;
+import static co.edu.udea.certificacion.taller.userinterfaces.SaucedemoPage.*;
 
 public class SelectElement implements Task {
     @Override
@@ -15,6 +14,8 @@ public class SelectElement implements Task {
         actor.attemptsTo(Click.on(ADD_ELEMENT_1));
         WaitTime.putWaitTimeOf(2000);
         actor.attemptsTo(Click.on(ADD_ELEMENT_2));
+        WaitTime.putWaitTimeOf(2000);
+        actor.attemptsTo(Click.on(ADD_ELEMENT_3));
     }
 
     public static SelectElement elements(){
