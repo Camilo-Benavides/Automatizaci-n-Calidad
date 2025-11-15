@@ -1,0 +1,13 @@
+package co.edu.udea.certificacion.taller.runners;
+
+import io.cucumber.junit.CucumberOptions;
+import net.serenitybdd.cucumber.CucumberWithSerenity;
+import org.junit.runner.RunWith;
+
+@RunWith(CucumberWithSerenity.class)
+@CucumberOptions(
+        features = "src/test/resources/features/online_shop_shopping_cart.feature",
+        glue = "co.edu.udea.certificacion.taller.stepdefinitions",
+        snippets = CucumberOptions.SnippetType.CAMELCASE)
+
+public class RunnerCountShoppingCartSaucedemo {}
