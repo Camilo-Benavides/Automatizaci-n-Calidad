@@ -11,7 +11,7 @@ plugins {
     id 'idea'
 }
 
-group 'co.edu.udea.certificacion'
+group='co.edu.udea.certificacion'
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
