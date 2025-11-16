@@ -1,6 +1,7 @@
 package co.edu.udea.certificacion.taller.stepdefinitions;
 
 import co.edu.udea.certificacion.taller.interactions.saucedemo.ClickKey;
+import co.edu.udea.certificacion.taller.questions.ValidationSaucedemo;
 import co.edu.udea.certificacion.taller.tasks.Saucedemo.LoginSaucedemo;
 import co.edu.udea.certificacion.taller.tasks.OpenUrl;
 import co.edu.udea.certificacion.taller.tasks.Saucedemo.RemoveElement;
@@ -11,9 +12,11 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.serenitybdd.annotations.Managed;
 import net.serenitybdd.screenplay.Actor;
+import net.serenitybdd.screenplay.GivenWhenThen;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
+import org.hamcrest.Matchers;
 import org.openqa.selenium.WebDriver;
 
 public class SaucedemoStepDefinition {
@@ -85,8 +88,7 @@ public class SaucedemoStepDefinition {
     }
     @Then("It shows how many products I have in my cart")
     public void itShowsHowManyProductsIHaveInMyCart() {
-        // Write code here that turns the phrase above into concrete actions
-//        throw new io.cucumber.java.PendingException();
+        GivenWhenThen.then(user).should(GivenWhenThen.seeThat(ValidationSaucedemo.validateShoppingCart(), Matchers.containsString("1")));
     }
 
 }

@@ -14,5 +14,6 @@ public class SaucedemoPage extends PageObject {
     public static final Target REMOVE_ELEMENT_1 = Target.the("Remove element").locatedBy("//*[@id=\"remove-sauce-labs-bike-light\"]");
     public static final Target REMOVE_ELEMENT_2 = Target.the("Remove element").locatedBy("//*[@id=\"remove-sauce-labs-bolt-t-shirt\"]");
     public static final Target SHOPPING_CART = Target.the("Move to Shopping Cart").locatedBy("//*[@id=\"shopping_cart_container\"]/a");
+    public static final Target SHOPPING_CART_BADGE = Target.the("Count").locatedBy("//*[@id=\"shopping_cart_container\"]/a/span");
 
 }
