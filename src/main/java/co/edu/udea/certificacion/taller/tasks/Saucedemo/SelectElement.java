@@ -6,19 +6,26 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.actions.Click;
 
-import static co.edu.udea.certificacion.taller.userinterfaces.SaucedemoPage.*;
+import net.serenitybdd.screenplay.targets.Target;
+import java.util.List;
 
 public class SelectElement implements Task {
-    @Override
-    public <T extends Actor> void performAs(T actor) {
-        actor.attemptsTo(Click.on(ADD_ELEMENT_1));
-        WaitTime.putWaitTimeOf(2000);
-        actor.attemptsTo(Click.on(ADD_ELEMENT_2));
-        WaitTime.putWaitTimeOf(2000);
-        actor.attemptsTo(Click.on(ADD_ELEMENT_3));
+    private final List<Target> elementsToSelect;
+
+    public SelectElement(List<Target> elementsToSelect) {
+        this.elementsToSelect = elementsToSelect;
     }
 
-    public static SelectElement elements(){
-        return Tasks.instrumented(SelectElement.class);
+    @Override
+    public <T extends Actor> void performAs(T actor) {
+        for (Target element : elementsToSelect) {
+            WaitTime.putWaitTimeOf(1000);
+            actor.attemptsTo(Click.on(element));
+            WaitTime.putWaitTimeOf(2000);
+        }
+    }
+
+    public static SelectElement elements(List<Target> elementsToSelect) {
+        return Tasks.instrumented(SelectElement.class, elementsToSelect);
     }
 }

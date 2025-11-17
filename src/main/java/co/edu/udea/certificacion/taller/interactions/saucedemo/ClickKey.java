@@ -11,8 +11,9 @@ import static co.edu.udea.certificacion.taller.userinterfaces.SaucedemoPage.SHOP
 public class ClickKey implements Interaction {
     @Override
     public <T extends Actor> void performAs(T actor) {
-        WaitTime.putWaitTimeOf(2000);
+        WaitTime.putWaitTimeOf(1000);
         actor.attemptsTo(Click.on(SHOPPING_CART));
+        WaitTime.putWaitTimeOf(2000);
     }
 
     public static ClickKey moveToShoppingCart() {
