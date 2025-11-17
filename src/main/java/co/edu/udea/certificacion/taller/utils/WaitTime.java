@@ -2,9 +2,9 @@ package co.edu.udea.certificacion.taller.utils;
 
 public class WaitTime {
 
-    private static WaitTime waitTime;
+    static WaitTime waitTime;
 
-    public Integer millis;
+    Integer millis;
 
     public WaitTime(Integer millis){
 

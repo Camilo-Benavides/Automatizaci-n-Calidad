@@ -1,6 +1,6 @@
 Feature:Check how many products I have in the shopping car
 
-  As User I need to use it
+  As User I want to view and manage my shopping cart so I can see how many products I have.
 
   Scenario: Search store website
     Given I am in the saucedemo page

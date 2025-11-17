@@ -15,7 +15,7 @@ public class ClickKey implements Interaction {
         actor.attemptsTo(Click.on(SHOPPING_CART));
     }
 
-    public static ClickKey move_to_shopping_cart() {
+    public static ClickKey moveToShoppingCart() {
         return Tasks.instrumented(ClickKey.class);
     }
 }

@@ -44,10 +44,12 @@ public class SaucedemoStepDefinition {
     }
     @Then("I can access to the site")
     public void iCanSeeTheSaucedemoSOfficialPage() {
+        // Write code here that turns the phrase above into concrete actions
     }
 
     @Given("I am in main menu")
     public void iAmInMainMenu() {
+        // Write code here that turns the phrase above into concrete actions
     }
     @When("I select one product")
     public void iSelectOneProduct() {
@@ -57,13 +59,11 @@ public class SaucedemoStepDefinition {
     @Then("the element is added")
     public void theElementIsAdded() {
         // Write code here that turns the phrase above into concrete actions
-//        throw new io.cucumber.java.PendingException();
     }
 
     @Given("I already have elements in the shopping cart")
     public void iAlreadyHaveElementsInTheShoppingCart() {
         // Write code here that turns the phrase above into concrete actions
-//        throw new io.cucumber.java.PendingException();
     }
     @When("I select remove")
     public void iSelectRemove() {
@@ -72,19 +72,15 @@ public class SaucedemoStepDefinition {
     @Then("the element is removed")
     public void theElementIsRemoved() {
         // Write code here that turns the phrase above into concrete actions
-//        throw new io.cucumber.java.PendingException();
     }
 
     @Given("I have finished choosing the products")
     public void iHaveFinishedChoosingTheProducts() {
         // Write code here that turns the phrase above into concrete actions
-//        throw new io.cucumber.java.PendingException();
     }
     @When("I click on the shopping cart")
     public void iClickOnTheShoppingCart() {
-        // Write code here that turns the phrase above into concrete actions
-//        throw new io.cucumber.java.PendingException();
-        user.attemptsTo(ClickKey.move_to_shopping_cart());
+        user.attemptsTo(ClickKey.moveToShoppingCart());
     }
     @Then("It shows how many products I have in my cart")
     public void itShowsHowManyProductsIHaveInMyCart() {
