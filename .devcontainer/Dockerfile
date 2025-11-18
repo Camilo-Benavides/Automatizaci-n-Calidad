@@ -26,6 +26,11 @@ RUN apt-get -y update && export DEBIAN_FRONTEND=noninteractive \
     xdg-utils \
     && apt-get clean -y && rm -rf /var/lib/apt/lists/*
 
+# Instalar Git LFS
+RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash \
+    && apt-get install -y git-lfs \
+    && apt-get clean -y && rm -rf /var/lib/apt/lists/*
+
 # Instalar Google Chrome (estable)
 RUN wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
     && apt-get -y update \
