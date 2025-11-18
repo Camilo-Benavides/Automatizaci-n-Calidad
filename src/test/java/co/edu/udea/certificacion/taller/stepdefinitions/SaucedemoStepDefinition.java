@@ -22,7 +22,6 @@ import org.openqa.selenium.WebDriver;
 public class SaucedemoStepDefinition {
     public final Actor user = Actor.named("User");
 
-
     @Managed(driver = "chrome", uniqueSession = true)
     public WebDriver driver;
 
