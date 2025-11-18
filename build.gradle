@@ -2,6 +2,9 @@ buildscript {
     repositories {
         mavenCentral()
     }
+    dependencies {
+        classpath "net.serenity-bdd:serenity-gradle-plugin:4.0.1"
+    }
 }
 
 plugins {
@@ -10,6 +13,8 @@ plugins {
     id 'eclipse'
     id 'idea'
 }
+
+apply plugin: 'net.serenity-bdd.serenity-gradle-plugin'
 
 group 'co.edu.udea.certificacion'
 
@@ -52,10 +57,30 @@ dependencies {
 
     //Additional library
     implementation group: 'org.apache.commons', name: 'commons-dbcp2', version: '2.12.0'
+    
+    //Serenity reporting para aggregate
+    implementation "net.serenity-bdd:serenity-reports:$rootProject.ext.serenityVersion"
+    implementation "net.serenity-bdd:serenity-report-resources:$rootProject.ext.serenityVersion"
 
 }
 
 tasks.named('test') {
     // System configs
-
+    outputs.upToDateWhen { false }
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+    ignoreFailures = true // Permitir que aggregate se ejecute incluso con fallos
 }
+
+tasks.named('test') {
+    // System configs
+    outputs.upToDateWhen { false }
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+    ignoreFailures = true // Permitir que aggregate se ejecute incluso con fallos
+    finalizedBy aggregate
+}
+
+// Tarea cleanReports ya no es necesaria, el plugin la proporciona

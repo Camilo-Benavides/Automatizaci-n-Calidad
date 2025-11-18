@@ -4,9 +4,9 @@ Este devcontainer está configurado para ejecutar pruebas de Serenity BDD con Se
 
 ## 🔧 Componentes Instalados
 
-- **Java 21** (Eclipse Temurin JDK)
+- **Java 21**
 - **Gradle 8.5**
-- **Google Chrome** (versión estable más reciente)
+- **Google Chrome** 
 - **Git, curl, wget** y utilidades básicas
 - **Docker-in-Docker** (para ejecutar contenedores dentro del devcontainer)
 
@@ -27,6 +27,17 @@ Cuando abras el proyecto en un Codespace o con VS Code + Dev Containers:
 # O manualmente
 ./gradlew clean test
 ```
+
+### Utilidades
+
+Se agrego una extension que permite ver el index que se genera como reporte.
+Para esto haga lo siguiente:
+
+1. Busque y abra el archivo target/site/serenity/index.html
+2. Dele click derecho sobre el archivo en el explorador
+3. Seleccione "Open with Live server"
+4. Cuando se abra el puerto pongalo en publico.
+
 
 ## 🌐 Configuración de Chrome
 

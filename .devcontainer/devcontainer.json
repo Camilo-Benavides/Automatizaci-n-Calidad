@@ -17,7 +17,8 @@
                 "vscjava.vscode-gradle",
                 "alexkrechik.cucumberautocomplete",
                 "github.copilot",
-                "github.copilot-chat"
+                "github.copilot-chat",
+                "ritwickdey.liveserver"
             ],
             "settings": {
                 "java.jdt.ls.java.home": "/opt/java/openjdk",
