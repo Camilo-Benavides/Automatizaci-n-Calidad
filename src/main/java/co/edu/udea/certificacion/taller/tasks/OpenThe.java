@@ -7,7 +7,6 @@ import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.actions.Open;
 
 public class OpenThe implements Task {
-//    private OpenThe(){}
 
     PageObject page;
 

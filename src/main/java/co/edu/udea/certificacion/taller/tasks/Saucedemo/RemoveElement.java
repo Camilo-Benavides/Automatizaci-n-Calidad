@@ -8,35 +8,26 @@ import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
-import static co.edu.udea.certificacion.taller.userinterfaces.SaucedemoPage.*;
-import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
+import net.serenitybdd.screenplay.targets.Target;
+import java.util.List;
 
 public class RemoveElement implements Task {
+    private final List<Target> elementsToRemove;
 
-    @Step("{0} remueve productos del carrito de compras")
+    public RemoveElement(List<Target> elementsToRemove) {
+        this.elementsToRemove = elementsToRemove;
+    }
+
     @Override
     public <T extends Actor> void performAs(T actor) {
-        removeFirstProduct(actor);
-        removeSecondProduct(actor);
+        for (Target element : elementsToRemove) {
+            WaitTime.putWaitTimeOf(1000);
+            actor.attemptsTo(Click.on(element));
+            WaitTime.putWaitTimeOf(1000);
+        }
     }
 
-    @Step("Usuario remueve el primer producto (Sauce Labs Bike Light) del carrito")
-    private void removeFirstProduct(Actor actor) {
-        actor.attemptsTo(
-                WaitUntil.the(REMOVE_ELEMENT_1, isVisible()).forNoMoreThan(10).seconds(),
-                Click.on(REMOVE_ELEMENT_1));
-        WaitTime.putWaitTimeOf(1500);
-    }
-
-    @Step("Usuario remueve el segundo producto (Sauce Labs Bolt T-Shirt) del carrito")
-    private void removeSecondProduct(Actor actor) {
-        actor.attemptsTo(
-                WaitUntil.the(REMOVE_ELEMENT_2, isVisible()).forNoMoreThan(10).seconds(),
-                Click.on(REMOVE_ELEMENT_2));
-        WaitTime.putWaitTimeOf(1500);
-    }
-
-    public static RemoveElement remove() {
-        return Tasks.instrumented(RemoveElement.class);
+    public static RemoveElement remove(List<Target> elementsToRemove) {
+        return Tasks.instrumented(RemoveElement.class, elementsToRemove);
     }
 }

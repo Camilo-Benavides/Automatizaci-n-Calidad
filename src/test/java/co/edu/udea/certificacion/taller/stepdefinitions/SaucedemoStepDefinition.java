@@ -16,8 +16,18 @@ import net.serenitybdd.screenplay.GivenWhenThen;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
+
 import org.hamcrest.Matchers;
 import org.openqa.selenium.WebDriver;
+
+import static co.edu.udea.certificacion.taller.userinterfaces.SaucedemoPage.REMOVE_ELEMENT_1;
+import static co.edu.udea.certificacion.taller.userinterfaces.SaucedemoPage.ADD_ELEMENT_1;
+import static co.edu.udea.certificacion.taller.userinterfaces.SaucedemoPage.ADD_ELEMENT_2;
+import static co.edu.udea.certificacion.taller.userinterfaces.SaucedemoPage.ADD_ELEMENT_3;
+import static co.edu.udea.certificacion.taller.userinterfaces.SaucedemoPage.SHOPPING_CART;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class SaucedemoStepDefinition {
     public final Actor user = Actor.named("User");
@@ -44,52 +54,54 @@ public class SaucedemoStepDefinition {
 
     @Then("I can access to the site")
     public void iCanSeeTheSaucedemoSOfficialPage() {
+        // Write code here that turns the phrase above into concrete actions
     }
 
     @Given("I am in main menu")
     public void iAmInMainMenu() {
+        // Write code here that turns the phrase above into concrete actions
     }
 
     @When("I select one product")
     public void iSelectOneProduct() {
-        // Write code here that turns the phrase above into concrete actions
-        user.attemptsTo(SelectElement.elements());
+        user.attemptsTo(SelectElement.elements(new ArrayList<>(Arrays.asList(ADD_ELEMENT_1, ADD_ELEMENT_2, ADD_ELEMENT_3))));
     }
 
     @Then("the element is added")
     public void theElementIsAdded() {
-        // Write code here that turns the phrase above into concrete actions
-        // throw new io.cucumber.java.PendingException();
+        GivenWhenThen.then(user).should(GivenWhenThen.seeThat(
+            ValidationSaucedemo.validateShoppingCart(), 
+            Matchers.containsString("3")
+        ));
     }
 
     @Given("I already have elements in the shopping cart")
     public void iAlreadyHaveElementsInTheShoppingCart() {
-        // Write code here that turns the phrase above into concrete actions
-        // throw new io.cucumber.java.PendingException();
+        user.attemptsTo(SelectElement.elements(Arrays.asList(ADD_ELEMENT_1)));
     }
 
-    @When("I select remove")
+    @Given("I add some elements to the shopping cart")
+    public void iAddSomeElementsToTheShoppingCart() {
+        user.attemptsTo(SelectElement.elements(Arrays.asList(ADD_ELEMENT_1, ADD_ELEMENT_2)));
+    }
+    @When("I remove one of them")
     public void iSelectRemove() {
-        user.attemptsTo(RemoveElement.remove());
+        user.attemptsTo(RemoveElement.remove(Arrays.asList(REMOVE_ELEMENT_1)));
     }
 
     @Then("the element is removed")
     public void theElementIsRemoved() {
-        // Write code here that turns the phrase above into concrete actions
-        // throw new io.cucumber.java.PendingException();
+        GivenWhenThen.then(user).should(GivenWhenThen.seeThat(ValidationSaucedemo.validateShoppingCart(), Matchers.containsString("")));
     }
 
     @Given("I have finished choosing the products")
     public void iHaveFinishedChoosingTheProducts() {
         // Write code here that turns the phrase above into concrete actions
-        // throw new io.cucumber.java.PendingException();
     }
 
     @When("I click on the shopping cart")
     public void iClickOnTheShoppingCart() {
-        // Write code here that turns the phrase above into concrete actions
-        // throw new io.cucumber.java.PendingException();
-        user.attemptsTo(ClickKey.move_to_shopping_cart());
+        user.attemptsTo(ClickKey.on(SHOPPING_CART));
     }
 
     @Then("It shows how many products I have in my cart")
