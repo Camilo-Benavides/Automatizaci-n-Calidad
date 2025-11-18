@@ -1,10 +1,12 @@
 package co.edu.udea.certificacion.taller.tasks.Saucedemo;
 
 import co.edu.udea.certificacion.taller.utils.WaitTime;
+import net.serenitybdd.annotations.Step;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.actions.Click;
+import net.serenitybdd.screenplay.waits.WaitUntil;
 
 import net.serenitybdd.screenplay.targets.Target;
 import java.util.List;

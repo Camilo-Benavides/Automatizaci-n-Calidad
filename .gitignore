@@ -1,5 +1,31 @@
+# IDE
 .idea
 .vscode/settings.json
+*.iml
+*.iws
+*.ipr
+
+# Build
 /build
 /.gradle
 /target
+/bin
+/out
+
+# Gradle
+.gradle/
+build/
+
+# Serenity Reports
+target/
+serenity-bdd/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test outputs
+test-output/
