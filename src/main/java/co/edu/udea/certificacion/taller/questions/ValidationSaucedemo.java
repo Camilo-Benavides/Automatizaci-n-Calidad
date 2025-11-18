@@ -7,6 +7,8 @@ import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import static co.edu.udea.certificacion.taller.userinterfaces.SaucedemoPage.SHOPPING_CART_BADGE;
 
 public class ValidationSaucedemo implements Question<String> {
+    //TODO: Se podria pensar en validaciones o expeciones
+
     @Override
     public String answeredBy(Actor actor) {
         String value = BrowseTheWeb.as(actor).find(SHOPPING_CART_BADGE).getText();

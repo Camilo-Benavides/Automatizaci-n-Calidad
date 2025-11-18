@@ -21,12 +21,24 @@ public class LoginSaucedemo implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        actor.attemptsTo(Enter.theValue(username).into(INPUT_USERNAME));
+        actor.attemptsTo(Enter.theValue(username).into(INPUT_USERNAME)); // Se podria combinar con la siguiente linea
         WaitTime.putWaitTimeOf(2000);
-        actor.attemptsTo(Enter.theValue(password).into(INPUT_PASSWORD));
+        actor.attemptsTo(Enter.theValue(password).into(INPUT_PASSWORD)); //Se podria combinar con la anterior linea
         WaitTime.putWaitTimeOf(2000);
-        actor.attemptsTo();
+        actor.attemptsTo(); //¿Es necesaria esta linea?
         actor.attemptsTo(Click.on(BUTTON_SUBMIT));
+
+        /* TODO:
+         * @Override
+         * public <T extends Actor> void performAs(T actor) {
+         *  actor.attemptsTo(
+         *      Enter.theValue(username).into(INPUT_USERNAME),
+         *      Enter.theValue(password).into(INPUT_PASSWORD)
+         *  );
+         *  WaitTime.putWaitTimeOf(2000);
+         *  actor.attemptsTo(Click.on(BUTTON_SUBMIT));
+         *}
+         */
     }
 
     public static LoginSaucedemo login(String username, String password) {

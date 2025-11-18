@@ -1,4 +1,9 @@
 Feature:Check how many products I have in the shopping car
+  #Se podria pensar en escribir una Feature más larga o precisa como por ejemplo:
+  #As a (store customer)/ User
+  #I want to manage my shopping cart
+  #So I can review my products before purchasing
+
 
   As User I need to use it
 
