@@ -65,7 +65,17 @@ Este script ejecuta:
 ### Usando Gradle Directamente
 
 ```bash
+# Para DevContainer (headless):
+
+gradle clean test -Denvironment=devcontainer
+
+# Para ejecución local (con interfaz):
+
+gradle clean test -Denvironment=local
+
+# Sin especificar (usa configuración base):
 # Ejecutar todas las pruebas
+
 ./gradlew clean test
 
 # Generar reportes interactivos
@@ -76,7 +86,9 @@ Este script ejecuta:
 
 # Ver resultados detallados
 ./gradlew test --info
+
 ```
+
 
 ## 📊 Reportes
 
