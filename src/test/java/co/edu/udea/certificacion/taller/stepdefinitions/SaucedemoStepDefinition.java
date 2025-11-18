@@ -21,10 +21,10 @@ import org.hamcrest.Matchers;
 import org.openqa.selenium.WebDriver;
 
 import static co.edu.udea.certificacion.taller.userinterfaces.SaucedemoPage.REMOVE_ELEMENT_1;
-import static co.edu.udea.certificacion.taller.userinterfaces.SaucedemoPage.REMOVE_ELEMENT_2;
 import static co.edu.udea.certificacion.taller.userinterfaces.SaucedemoPage.ADD_ELEMENT_1;
 import static co.edu.udea.certificacion.taller.userinterfaces.SaucedemoPage.ADD_ELEMENT_2;
 import static co.edu.udea.certificacion.taller.userinterfaces.SaucedemoPage.ADD_ELEMENT_3;
+import static co.edu.udea.certificacion.taller.userinterfaces.SaucedemoPage.SHOPPING_CART;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -63,25 +63,32 @@ public class SaucedemoStepDefinition {
     }
     @When("I select one product")
     public void iSelectOneProduct() {
-        // Write code here that turns the phrase above into concrete actions
         user.attemptsTo(SelectElement.elements(new ArrayList<>(Arrays.asList(ADD_ELEMENT_1, ADD_ELEMENT_2, ADD_ELEMENT_3))));
     }
     @Then("the element is added")
     public void theElementIsAdded() {
-        // Write code here that turns the phrase above into concrete actions
+        GivenWhenThen.then(user).should(GivenWhenThen.seeThat(
+            ValidationSaucedemo.validateShoppingCart(), 
+            Matchers.containsString("3")
+        ));
     }
 
     @Given("I already have elements in the shopping cart")
     public void iAlreadyHaveElementsInTheShoppingCart() {
-        // Write code here that turns the phrase above into concrete actions
+        user.attemptsTo(SelectElement.elements(Arrays.asList(ADD_ELEMENT_1)));
     }
-    @When("I select remove")
+
+    @Given("I add some elements to the shopping cart")
+    public void iAddSomeElementsToTheShoppingCart() {
+        user.attemptsTo(SelectElement.elements(Arrays.asList(ADD_ELEMENT_1, ADD_ELEMENT_2)));
+    }
+    @When("I remove one of them")
     public void iSelectRemove() {
-        user.attemptsTo(RemoveElement.remove(Arrays.asList(REMOVE_ELEMENT_1, REMOVE_ELEMENT_2)));
+        user.attemptsTo(RemoveElement.remove(Arrays.asList(REMOVE_ELEMENT_1)));
     }
     @Then("the element is removed")
     public void theElementIsRemoved() {
-        // Write code here that turns the phrase above into concrete actions
+        GivenWhenThen.then(user).should(GivenWhenThen.seeThat(ValidationSaucedemo.validateShoppingCart(), Matchers.containsString("")));
     }
 
     @Given("I have finished choosing the products")
@@ -90,7 +97,7 @@ public class SaucedemoStepDefinition {
     }
     @When("I click on the shopping cart")
     public void iClickOnTheShoppingCart() {
-        user.attemptsTo(ClickKey.moveToShoppingCart());
+        user.attemptsTo(ClickKey.on(SHOPPING_CART));
     }
     @Then("It shows how many products I have in my cart")
     public void itShowsHowManyProductsIHaveInMyCart() {

@@ -6,17 +6,24 @@ import net.serenitybdd.screenplay.Interaction;
 import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.actions.Click;
 
-import static co.edu.udea.certificacion.taller.userinterfaces.SaucedemoPage.SHOPPING_CART;
+
+import net.serenitybdd.screenplay.targets.Target;
 
 public class ClickKey implements Interaction {
+    private final Target target;
+
+    public ClickKey(Target target) {
+        this.target = target;
+    }
+
     @Override
     public <T extends Actor> void performAs(T actor) {
         WaitTime.putWaitTimeOf(1000);
-        actor.attemptsTo(Click.on(SHOPPING_CART));
-        WaitTime.putWaitTimeOf(2000);
+        actor.attemptsTo(Click.on(target));
+        WaitTime.putWaitTimeOf(1000);
     }
 
-    public static ClickKey moveToShoppingCart() {
-        return Tasks.instrumented(ClickKey.class);
+    public static ClickKey on(Target target) {
+        return Tasks.instrumented(ClickKey.class, target);
     }
 }

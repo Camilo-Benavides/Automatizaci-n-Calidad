@@ -23,9 +23,9 @@ public class LoginSaucedemo implements Task {
     public <T extends Actor> void performAs(T actor) {
         WaitTime.putWaitTimeOf(1000);
         actor.attemptsTo(Enter.theValue(username).into(INPUT_USERNAME));
-        WaitTime.putWaitTimeOf(2000);
+        WaitTime.putWaitTimeOf(1000);
         actor.attemptsTo(Enter.theValue(password).into(INPUT_PASSWORD));
-        WaitTime.putWaitTimeOf(2000);
+        WaitTime.putWaitTimeOf(1000);
         actor.attemptsTo();
         actor.attemptsTo(Click.on(BUTTON_SUBMIT));
         WaitTime.putWaitTimeOf(1000);

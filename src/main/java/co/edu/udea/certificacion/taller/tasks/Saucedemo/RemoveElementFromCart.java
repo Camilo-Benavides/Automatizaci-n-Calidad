@@ -13,7 +13,7 @@ public class RemoveElementFromCart implements Task {
     public <T extends Actor> void performAs(T actor) {
         WaitTime.putWaitTimeOf(1000);
         actor.attemptsTo(Click.on(REMOVE_BACKPACK_FROM_CART));
-        WaitTime.putWaitTimeOf(2000);
+        WaitTime.putWaitTimeOf(1000);
     }
 
     public static RemoveElementFromCart remove(){

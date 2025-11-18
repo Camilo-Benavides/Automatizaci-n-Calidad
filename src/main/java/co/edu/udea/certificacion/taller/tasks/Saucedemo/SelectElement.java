@@ -21,7 +21,7 @@ public class SelectElement implements Task {
         for (Target element : elementsToSelect) {
             WaitTime.putWaitTimeOf(1000);
             actor.attemptsTo(Click.on(element));
-            WaitTime.putWaitTimeOf(2000);
+            WaitTime.putWaitTimeOf(1000);
         }
     }
 

@@ -21,7 +21,7 @@ public class RemoveElement implements Task {
         for (Target element : elementsToRemove) {
             WaitTime.putWaitTimeOf(1000);
             actor.attemptsTo(Click.on(element));
-            WaitTime.putWaitTimeOf(2000);
+            WaitTime.putWaitTimeOf(1000);
         }
     }
 
