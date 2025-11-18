@@ -6,18 +6,26 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.actions.Click;
 
-import static co.edu.udea.certificacion.taller.userinterfaces.SaucedemoPage.REMOVE_ELEMENT_1;
-import static co.edu.udea.certificacion.taller.userinterfaces.SaucedemoPage.REMOVE_ELEMENT_2;
+import net.serenitybdd.screenplay.targets.Target;
+import java.util.List;
 
 public class RemoveElement implements Task {
-    @Override
-    public <T extends Actor> void performAs(T actor) {
-        actor.attemptsTo(Click.on(REMOVE_ELEMENT_1));
-        WaitTime.putWaitTimeOf(2000);
-        actor.attemptsTo(Click.on(REMOVE_ELEMENT_2));
+    private final List<Target> elementsToRemove;
+
+    public RemoveElement(List<Target> elementsToRemove) {
+        this.elementsToRemove = elementsToRemove;
     }
 
-    public static RemoveElement remove(){
-        return Tasks.instrumented(RemoveElement.class);
+    @Override
+    public <T extends Actor> void performAs(T actor) {
+        for (Target element : elementsToRemove) {
+            WaitTime.putWaitTimeOf(1000);
+            actor.attemptsTo(Click.on(element));
+            WaitTime.putWaitTimeOf(1000);
+        }
+    }
+
+    public static RemoveElement remove(List<Target> elementsToRemove) {
+        return Tasks.instrumented(RemoveElement.class, elementsToRemove);
     }
 }
