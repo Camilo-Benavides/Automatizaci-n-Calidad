@@ -22,26 +22,27 @@ import org.openqa.selenium.WebDriver;
 public class SaucedemoStepDefinition {
     public final Actor user = Actor.named("User");
 
-//    private final EnvironmentVariables env =
 
     @Managed(driver = "chrome", uniqueSession = true)
     public WebDriver driver;
 
-
     @Before
-    public void config(){
+    public void config() {
         user.can(BrowseTheWeb.with(driver));
         OnStage.setTheStage(new OnlineCast());
         OnStage.theActorCalled("User");
     }
+
     @Given("I am in the saucedemo page")
     public void iAmInTheGooglePage() {
         user.attemptsTo(OpenUrl.page("saucedemo"));
     }
+
     @When("I fill the login")
     public void iTypeSaucedemoOnGoogleSearchBar() {
         user.attemptsTo(LoginSaucedemo.login("standard_user", "secret_sauce"));
     }
+
     @Then("I can access to the site")
     public void iCanSeeTheSaucedemoSOfficialPage() {
     }
@@ -49,46 +50,53 @@ public class SaucedemoStepDefinition {
     @Given("I am in main menu")
     public void iAmInMainMenu() {
     }
+
     @When("I select one product")
     public void iSelectOneProduct() {
         // Write code here that turns the phrase above into concrete actions
         user.attemptsTo(SelectElement.elements());
     }
+
     @Then("the element is added")
     public void theElementIsAdded() {
         // Write code here that turns the phrase above into concrete actions
-//        throw new io.cucumber.java.PendingException();
+        // throw new io.cucumber.java.PendingException();
     }
 
     @Given("I already have elements in the shopping cart")
     public void iAlreadyHaveElementsInTheShoppingCart() {
         // Write code here that turns the phrase above into concrete actions
-//        throw new io.cucumber.java.PendingException();
+        // throw new io.cucumber.java.PendingException();
     }
+
     @When("I select remove")
     public void iSelectRemove() {
         user.attemptsTo(RemoveElement.remove());
     }
+
     @Then("the element is removed")
     public void theElementIsRemoved() {
         // Write code here that turns the phrase above into concrete actions
-//        throw new io.cucumber.java.PendingException();
+        // throw new io.cucumber.java.PendingException();
     }
 
     @Given("I have finished choosing the products")
     public void iHaveFinishedChoosingTheProducts() {
         // Write code here that turns the phrase above into concrete actions
-//        throw new io.cucumber.java.PendingException();
+        // throw new io.cucumber.java.PendingException();
     }
+
     @When("I click on the shopping cart")
     public void iClickOnTheShoppingCart() {
         // Write code here that turns the phrase above into concrete actions
-//        throw new io.cucumber.java.PendingException();
+        // throw new io.cucumber.java.PendingException();
         user.attemptsTo(ClickKey.move_to_shopping_cart());
     }
+
     @Then("It shows how many products I have in my cart")
     public void itShowsHowManyProductsIHaveInMyCart() {
-        GivenWhenThen.then(user).should(GivenWhenThen.seeThat(ValidationSaucedemo.validateShoppingCart(), Matchers.containsString("1")));
+        GivenWhenThen.then(user).should(
+                GivenWhenThen.seeThat(ValidationSaucedemo.validateShoppingCart(), Matchers.containsString("1")));
     }
 
 }
