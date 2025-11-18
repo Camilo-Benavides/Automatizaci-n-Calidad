@@ -1,0 +1,53 @@
+{
+    "name": "Automatizacion",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "app",
+    "workspaceFolder": "/workspace",
+    "features": {
+        "ghcr.io/azure/azure-dev/azd:latest": {},
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {
+            "version": "latest",
+            "moby": true
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "vscjava.vscode-java-pack",
+                "vscjava.vscode-gradle",
+                "alexkrechik.cucumberautocomplete",
+                "github.copilot",
+                "github.copilot-chat"
+            ],
+            "settings": {
+                "java.jdt.ls.java.home": "/opt/java/openjdk",
+                "java.configuration.updateBuildConfiguration": "automatic",
+                "java.configuration.runtimes": [
+                    {
+                        "name": "JavaSE-17",
+                        "path": "/opt/java/openjdk",
+                        "default": true
+                    },
+                    {
+                        "name": "JavaSE-21",
+                        "path": "/opt/java/openjdk"
+                    }
+                ],
+                "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
+                "java.format.settings.profile": "GoogleStyle",
+                "editor.formatOnSave": true,
+                "java.compile.nullAnalysis.mode": "automatic",
+                "cucumberautocomplete.steps": [
+                    "src/test/java/**/*.java"
+                ],
+                "cucumberautocomplete.syncfeatures": "src/test/resources/features/**/*.feature"
+            }
+        }
+    },
+    "forwardPorts": [],
+    "remoteUser": "developer",
+    "mounts": [
+        "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+    ],
+    "postCreateCommand": "sudo chmod 666 /var/run/docker.sock || true"
+}
