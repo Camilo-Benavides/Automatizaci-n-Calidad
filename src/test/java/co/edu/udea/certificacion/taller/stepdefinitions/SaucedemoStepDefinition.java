@@ -52,16 +52,6 @@ public class SaucedemoStepDefinition {
         user.attemptsTo(LoginSaucedemo.login("standard_user", "secret_sauce"));
     }
 
-    @Then("I can access to the site")
-    public void iCanSeeTheSaucedemoSOfficialPage() {
-        // Write code here that turns the phrase above into concrete actions
-    }
-
-    @Given("I am in main menu")
-    public void iAmInMainMenu() {
-        // Write code here that turns the phrase above into concrete actions
-    }
-
     @When("I select some products")
     public void iSelectOneProduct() {
         user.attemptsTo(SelectElement.elements(new ArrayList<>(Arrays.asList(ADD_ELEMENT_1, ADD_ELEMENT_2, ADD_ELEMENT_3))));
