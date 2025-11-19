@@ -62,13 +62,13 @@ public class SaucedemoStepDefinition {
         // Write code here that turns the phrase above into concrete actions
     }
 
-    @When("I select one product")
+    @When("I select some products")
     public void iSelectOneProduct() {
         user.attemptsTo(SelectElement.elements(new ArrayList<>(Arrays.asList(ADD_ELEMENT_1, ADD_ELEMENT_2, ADD_ELEMENT_3))));
     }
 
-    @Then("the element is added")
-    public void theElementIsAdded() {
+    @Then("the elements are added")
+    public void theElementsAreAdded() {
         GivenWhenThen.then(user).should(GivenWhenThen.seeThat(
             ValidationSaucedemo.validateShoppingCart(), 
             Matchers.containsString("3")
@@ -94,12 +94,7 @@ public class SaucedemoStepDefinition {
         GivenWhenThen.then(user).should(GivenWhenThen.seeThat(ValidationSaucedemo.validateShoppingCart(), Matchers.containsString("")));
     }
 
-    @Given("I have finished choosing the products")
-    public void iHaveFinishedChoosingTheProducts() {
-        // Write code here that turns the phrase above into concrete actions
-    }
-
-    @When("I click on the shopping cart")
+    @When("I select the shopping cart")
     public void iClickOnTheShoppingCart() {
         user.attemptsTo(ClickKey.on(SHOPPING_CART));
     }

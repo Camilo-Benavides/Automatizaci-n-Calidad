@@ -33,12 +33,12 @@ public class checkoutStepDefinition {
         OnStage.theActorCalled("User");
     }
 
-    @When("I click on the checkout button")
+    @When("I select the checkout module")
     public void iClickOnTheCheckoutButton() {
         user.attemptsTo(ClickKey.on(SaucedemoPage.CHECKOUT_BUTTON));
     }
 
-    @When("I click on the continue button")
+    @When("I proceed to the checkout module")
     public void iClickOnTheContinueButton() {
         user.attemptsTo(ClickKey.on(SaucedemoPage.CONTINUE_BUTTON));
     }

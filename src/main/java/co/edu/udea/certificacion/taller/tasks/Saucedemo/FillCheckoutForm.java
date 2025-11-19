@@ -21,13 +21,13 @@ public class FillCheckoutForm implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        WaitTime.putWaitTimeOf(1000);
+        WaitTime.putWaitTimeOf(1500);
         actor.attemptsTo(
             Enter.theValue(firstName).into(INPUT_FIRST_NAME),
             Enter.theValue(lastName).into(INPUT_LAST_NAME),
             Enter.theValue(postalCode).into(INPUT_POSTAL_CODE)
         );
-        WaitTime.putWaitTimeOf(1000);
+        WaitTime.putWaitTimeOf(1500);
     }
 
     public static FillCheckoutForm withData(String firstName, String lastName, String postalCode) {
