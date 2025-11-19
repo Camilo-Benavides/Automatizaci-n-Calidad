@@ -12,8 +12,8 @@ Feature:Check how many products I have in the shopping car
   #   Then I can access to the site
 
   Scenario: Add elements
-    When I select one product
-    Then the element is added
+    When I select some products
+    Then the elements are added
 
   Scenario: Remove elements
     Given I add some elements to the shopping cart
@@ -22,5 +22,5 @@ Feature:Check how many products I have in the shopping car
 
   Scenario: I want to review my items
     Given I already have elements in the shopping cart
-    When I click on the shopping cart
+    When I select the shopping cart
     Then It shows how many products I have in my cart
