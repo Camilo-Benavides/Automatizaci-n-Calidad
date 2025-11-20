@@ -39,7 +39,7 @@ public class SaucedemoStepDefinition {
     @Before
     public void config() {
         user.can(BrowseTheWeb.with(driver));
-        OnStage.setTheStage(new OnlineCast());
+        
         OnStage.theActorCalled("User");
     }
 
