@@ -26,3 +26,4 @@ Feature: Proceed to checkout products on my shopping cart
         And I fill the personal information
         And I proceed to the checkout module
         Then I should see a message indicating the cart is empty or cannot proceed
+    

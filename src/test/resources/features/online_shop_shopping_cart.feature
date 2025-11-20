@@ -6,11 +6,6 @@ Feature:Check how many products I have in the shopping car
     Given I am in the saucedemo page
     When I fill the login
 
-  # Scenario: Search store website
-  #   Given I am in the saucedemo page
-  #   When I fill the login
-  #   Then I can access to the site
-
   Scenario: Add elements
     When I select some products
     Then the elements are added
