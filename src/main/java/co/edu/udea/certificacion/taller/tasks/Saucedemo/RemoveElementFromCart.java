@@ -6,17 +6,23 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.actions.Click;
 
-import static co.edu.udea.certificacion.taller.userinterfaces.SaucedemoPage.REMOVE_BACKPACK_FROM_CART;
+import net.serenitybdd.screenplay.targets.Target;
 
 public class RemoveElementFromCart implements Task {
+    private final Target elementToRemove;
+
+    public RemoveElementFromCart(Target elementToRemove) {
+        this.elementToRemove = elementToRemove;
+    }
+
     @Override
     public <T extends Actor> void performAs(T actor) {
         WaitTime.putWaitTimeOf(1000);
-        actor.attemptsTo(Click.on(REMOVE_BACKPACK_FROM_CART));
+        actor.attemptsTo(Click.on(elementToRemove));
         WaitTime.putWaitTimeOf(1000);
     }
 
-    public static RemoveElementFromCart remove(){
-        return Tasks.instrumented(RemoveElementFromCart.class);
+    public static RemoveElementFromCart remove(Target elementToRemove){
+        return Tasks.instrumented(RemoveElementFromCart.class, elementToRemove);
     }
 }

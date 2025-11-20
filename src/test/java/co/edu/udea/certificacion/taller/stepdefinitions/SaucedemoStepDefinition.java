@@ -3,6 +3,7 @@ package co.edu.udea.certificacion.taller.stepdefinitions;
 import co.edu.udea.certificacion.taller.interactions.saucedemo.ClickKey;
 import co.edu.udea.certificacion.taller.questions.ValidationSaucedemo;
 import co.edu.udea.certificacion.taller.tasks.Saucedemo.LoginSaucedemo;
+import co.edu.udea.certificacion.taller.utils.ConfigReader;
 import co.edu.udea.certificacion.taller.tasks.OpenUrl;
 import co.edu.udea.certificacion.taller.tasks.Saucedemo.RemoveElement;
 import co.edu.udea.certificacion.taller.tasks.Saucedemo.SelectElement;
@@ -49,7 +50,9 @@ public class SaucedemoStepDefinition {
 
     @When("I fill the login")
     public void iTypeSaucedemoOnGoogleSearchBar() {
-        user.attemptsTo(LoginSaucedemo.login("standard_user", "secret_sauce"));
+        String username = ConfigReader.getString("saucedemo.user");
+        String password = ConfigReader.getString("saucedemo.pass");
+        user.attemptsTo(LoginSaucedemo.login(username, password));
     }
 
     @When("I select some products")
